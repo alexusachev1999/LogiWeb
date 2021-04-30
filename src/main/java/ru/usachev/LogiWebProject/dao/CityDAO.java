@@ -8,4 +8,7 @@ public interface CityDAO {
     public City getCityById(int id);
 
     public List<City> getCities();
+
+    City getCityByName(String cityName);
+
 }

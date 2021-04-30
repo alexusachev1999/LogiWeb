@@ -29,9 +29,6 @@
             <c:param name="orderId" value="${order.id}"/>
         </c:url>
 
-        <c:url var="detailButton" value="/admin/order/detail">
-            <c:param name="orderId" value="${order.id}"/>
-        </c:url>
 
         <c:url var="driverButton" value="/admin/order/drivers">
             <c:param name="orderId" value="${order.id}"/>
@@ -39,8 +36,10 @@
 
         <tr>
             <td>${order.number}</td>
-            <td><c:if test="${order.status == false}">Невыполнен</c:if>
-                <c:if test="${order.status == true}">Выполнен</c:if></td>
+            <td>
+                <c:if test="${order.status == false}">Невыполнен</c:if>
+                <c:if test="${order.status == true}">Выполнен</c:if>
+            </td>
             <td>
                 <ul>
                     <c:forEach var="waypoint" items="${order.waypoints}">
@@ -48,8 +47,12 @@
                     </c:forEach>
                 </ul>
             </td>
-            <td>${order.truck.registrationNumber}</td>
-            <td><input type="button" value="Список водителей" onclick="window.location.href='${driverButton}'"/></td>
+            <td>
+                    ${order.truck.registrationNumber}</td>
+            <td>
+            <td>
+                <input type="button" value="Список водителей" onclick="window.location.href='${driverButton}'"/></td>
+            </td>
             <td><input type="button" value="Обновить" onclick="window.location.href='${updateButton}'"/></td>
             <td><input type="button" value="Удалить" onclick="window.location.href='${deleteButton}'"/></td>
         </tr>
